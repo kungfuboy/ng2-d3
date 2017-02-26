@@ -7,17 +7,19 @@ import * as d3Shape from "d3-shape";
 import * as d3Array from "d3-array";
 import * as d3Axis from "d3-axis";
 
-import { Temperatures } from './share/dataK';
+import { Temperatures } from '../share/dataK';
 
 @Component({
   selector: 'ng-k',
   template: `
+  <div>
   <h1>{{title}}</h1>
   <h2>{{subtitle}}</h2>
-  <svg width="960" height="500"></svg>
+  <svg id="kline" width="960" height="500"></svg>
+  </div>
 `
 })
-export class AppComponent implements OnInit {
+export class AppKLine implements OnInit {
 
   // title: string = 'D3.js with Angular 2!';
   subtitle: string = 'K线图';
@@ -49,7 +51,7 @@ export class AppComponent implements OnInit {
   }
 
   private initChart(): void {
-    this.svg = d3.select("svg");
+    this.svg = d3.select("#kline");
 
     this.width = this.svg.attr("width") - this.margin.left - this.margin.right;
     this.height = this.svg.attr("height") - this.margin.top - this.margin.bottom;
@@ -113,15 +115,3 @@ export class AppComponent implements OnInit {
   }
 
 }
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class appKLine { }

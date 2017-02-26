@@ -24,3 +24,7 @@
   stroke: black;
   stroke-width: 0.5px;
 }
+
+.bar {
+    transition: all 0.6s ease;
+}

@@ -9,17 +9,19 @@ import * as d3Shape from "d3-shape";
 import * as d3Array from "d3-array";
 import * as d3Axis from "d3-axis";
 
-import { Stocks } from './share/dataLine';
+import { Stocks } from '../share/dataLine';
 
 @Component({
   selector: 'ng-line',
   template: `
-    <h1>{{title}}</h1>
-    <h2>{{subtitle}}</h2>
-    <svg width="900" height="500"></svg>
+    <div>
+        <h1>{{title }}</h1>
+        <h2> {{subtitle }}</h2>
+        <svg id="line" width= "900" height= "500" > </svg>
+    </div>
   `
 })
-export class AppComponent implements OnInit {
+export class AppLine implements OnInit {
 
   subtitle: string = '折线图';
 
@@ -44,7 +46,7 @@ export class AppComponent implements OnInit {
   }
 
   private initSvg() {
-    this.svg = d3.select("svg")
+    this.svg = d3.select("#line")
                  .append("g")
                  .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");;
   }
@@ -87,15 +89,3 @@ export class AppComponent implements OnInit {
   }
 
 }
-
-@NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class appLine { }

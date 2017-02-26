@@ -3,26 +3,41 @@ import 'zone.js';
 import 'reflect-metadata';
 
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
-// import { appBar } from './appBar';
-// import { appPie } from './appPie';
-// import { appLine } from './appLine';
-import { appKLine } from './appKLine';
+import { AppBar } from './appBar';
+import { AppPie } from './appPie';
+import { AppLine } from './appLine';
+import { AppKLine } from './appKLine';
 
-// 编译启动AppMoule模块
-// platformBrowserDynamic()
-//     .bootstrapModule(appBar)
-//     .catch((err: any) => console.error(err));
-//
-// platformBrowserDynamic()
-//     .bootstrapModule(appPie)
-//     .catch((err: any) => console.error(err));
-//
-// platformBrowserDynamic()
-//     .bootstrapModule(appLine)
-//     .catch((err: any) => console.error(err));
+@Component({
+    selector: 'ng2-d3',
+    template: `
+        <ng-bar></ng-bar>
+        <ng-pie></ng-pie>
+        <ng-line></ng-line>
+        <ng-k></ng-k>
+    `
+})
+class AppComponent { }
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    AppBar,
+    AppPie,
+    AppLine,
+    AppKLine
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+class App { }
 
 platformBrowserDynamic()
-    .bootstrapModule(appKLine)
+    .bootstrapModule(App)
     .catch((err: any) => console.error(err));
