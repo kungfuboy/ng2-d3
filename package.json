@@ -1,10 +1,10 @@
 {
-  "name": "test",
+  "name": "ng2-d3",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --watch",
     "watch": "webpack-dev-server  --inline --host 0.0.0.0"
   },
   "keywords": [],
@@ -29,6 +29,8 @@
     "@types/d3-scale": "^1.0.6",
     "@types/d3-selection": "^1.0.9",
     "@types/d3-shape": "^1.0.7",
+    "node-sass": "^4.5.0",
+    "sass-loader": "^6.0.2",
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
     "webpack": "^2.2.1",
